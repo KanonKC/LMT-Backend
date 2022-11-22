@@ -40,6 +40,7 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:3001",
+    "https://scoreboard-lmt.netlify.app"
 ]
 
 CORS_ALLOW_METHODS = [
