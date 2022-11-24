@@ -30,6 +30,15 @@ doc = auth.open_by_key("1LragT8P41KwjRvdixHr1i5e_XbvytzSH-yHiRckTg6o")
 
 def getSheetScore():
     worksheet = doc.get_worksheet(0)
-    result = sorted(worksheet.get_all_records(),key=lambda item: item['Score'],reverse=True)
-    
-    return [{'team':i['Team'],'score':i['Score'],'color':i['Color']} for i in result]
+    team = [i for i in worksheet.col_values(1)[1:]]
+    score = [int(i) for i in worksheet.col_values(2)[1:]]
+    color = [i for i in worksheet.col_values(3)[1:]]
+
+    parse = [{
+        'team' : team[i],
+        'score' : score[i],
+        'color' : color[i]
+    } for i in range(10)]
+
+    return sorted(parse,key=lambda item: item['score'],reverse=True)
+    # return [{'team':i['Team'],'score':i['Score'],'color':i['Color']} for i in result]
