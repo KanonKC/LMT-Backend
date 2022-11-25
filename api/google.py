@@ -40,5 +40,6 @@ def getSheetScore():
         'color' : color[i]
     } for i in range(10)]
 
-    return sorted(parse,key=lambda item: item['score'],reverse=True)
+    return parse
+    # return sorted(parse,key=lambda item: item['score'],reverse=True)
     # return [{'team':i['Team'],'score':i['Score'],'color':i['Color']} for i in result]
